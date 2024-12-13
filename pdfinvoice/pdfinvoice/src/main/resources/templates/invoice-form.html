@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<form th:action="@{/invoice/generate}" method="post">
+    <!-- User Selection -->
+    <label for="userId">Select User:</label>
+    <select name="userId" id="userId" required>
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+    </select>
+    <br/>
+
+    <!-- Insurance Policy Selection -->
+    <label for="policyId">Select Policy:</label>
+    <select name="policyId" id="policyId" required>
+        <option th:each="policy : ${policies}" th:value="${policy.id}" th:text="${policy.policyName}"></option>
+    </select>
+    <br/>
+
+    <!-- Submit Button -->
+    <button type="submit">Generate Invoice</button>
+</form>
